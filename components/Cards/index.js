@@ -21,7 +21,6 @@
 axios
   .get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(response => {
-      console.log("I'm firing!", response)
     Object.values(response.data.articles).forEach(function(item) {
       item.forEach(function(key) {
         displayCards.append(createArticles(key));
@@ -46,7 +45,7 @@ function createArticles(obj) {
   mainCard.append(mainAuthor);
   mainAuthor.append(ImgContainer);
   ImgContainer.append(ImgUrl);
-  mainName.append(mainAuthor);
+  mainAuthor.append(mainName);
 
   mainCard.classList.add("card");
   mainHeadline.classList.add("headline");
