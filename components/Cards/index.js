@@ -22,14 +22,15 @@ axios
   .get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(response => {
     console.log(response);
-    Array.from(response.data.articles).forEach(function(item) {
-      displayCards.append(createArticles(item));
-    });
-    Array.from(response.object.entries)
-  })
-  .catch(error => {
-    console.log("error loading axios", error);
-  });
+    Array.from(response.data.articles).forEach(item => {
+        displayCards.append(createArticles(item))
+        response.data.articles.forEach(item => {
+            displayCards.append(createArticles(item))
+        });
+    })
+//   .catch(error => {
+//     console.log("error loading axios", error);
+//   });
 
 const displayCards = document.querySelector(".cards-container");
 
@@ -60,3 +61,5 @@ function createArticles(obj) {
 
   return mainCard;
 }
+
+})
