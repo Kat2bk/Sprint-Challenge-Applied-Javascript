@@ -23,14 +23,13 @@ axios
   .then(response => {
     console.log(response);
     Array.from(response.data.articles).forEach(item => {
-        displayCards.append(createArticles(item))
-        response.data.articles.forEach(item => {
+        Object.entries(response.data.articles).forEach(item => {
             displayCards.append(createArticles(item))
         });
     })
-//   .catch(error => {
-//     console.log("error loading axios", error);
-//   });
+  .catch(error => {
+    console.log("error loading axios", error);
+  });
 
 const displayCards = document.querySelector(".cards-container");
 
