@@ -21,12 +21,13 @@
 axios
   .get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(response => {
-    console.log(response);
-    Array.from(response.data.articles).forEach(item => {
-        Object.entries(response.data.articles).forEach(item => {
-            displayCards.append(createArticles(item))
-        });
-    })
+      console.log("I'm firing!", response)
+    Object.values(response.data.articles).forEach(function(item) {
+      item.forEach(function(key) {
+        displayCards.append(createArticles(key));
+      });
+    });
+  })
   .catch(error => {
     console.log("error loading axios", error);
   });
@@ -54,11 +55,9 @@ function createArticles(obj) {
   ImgUrl.classList.add("img");
   mainName.classList.add("span");
 
-  ImgUrl.setAttribute("src", obj.data.articles.authorPhoto);
-  mainHeadline.textContent = obj.data.articles.headline;
-  mainName.textContent = obj.data.articles.authorName;
+  ImgUrl.setAttribute("src", obj.authorPhoto);
+  mainHeadline.textContent = obj.headline;
+  mainName.textContent = obj.authorName;
 
   return mainCard;
 }
-
-})
