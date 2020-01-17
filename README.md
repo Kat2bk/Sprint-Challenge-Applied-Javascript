@@ -29,9 +29,9 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+It is the Document Object Model. It represents the browser that can be manipulated using Javascript. So it itself is an API.
 2. What is an event?
-
+They are objects that can be applied to HTML that can create/cause stuff to happen.
 3. What is an event listener?
 
 4. Why would we convert a NodeList into an Array?
